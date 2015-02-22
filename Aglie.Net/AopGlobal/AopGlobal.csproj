@@ -46,7 +46,7 @@
     <Compile Include="Attributes\AopAttribute.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ServiceCommand.cs" />
-    <Compile Include="Common\ServerUtil.cs" />
+    <Compile Include="Common\ServiceUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="config\Aop.xml" />
     <Content Include="config\Object.xml" />
+    <Content Include="README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

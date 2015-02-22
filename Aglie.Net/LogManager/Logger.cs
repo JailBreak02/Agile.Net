@@ -22,7 +22,7 @@ namespace LogManager
         /// <summary>
         /// 无参数的构造函数
         /// </summary>
-        public Logger()
+        private Logger()
         {
             _createdTimestamp = DateTime.Now.ToString();
         }
