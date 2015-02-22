@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:aop="http://www.springframework.net/aop">
+  <description>AOP 独立配置</description>
+  <object id="throwsAdvice"
+  type="AopGlobal.Aspects.ThrowsAdvice"/>
+  <object id="afterAdvice"
+    type="AopGlobal.Aspects.AfterAdvice"/>
+  <object id="beforeAdvice"
+    type="AopGlobal.Aspects.BeforeAdvice"/>
+  <object id="aroundAdvice"
+    type="AopGlobal.Aspects.AroundAdvice"/>
+
+  <!-- Or Using TypeNameAutoProxyCreator -->
+  <!-- Apply 'aroundAdvisor' on all objects from namespace 'AopGlobal.Commands' -->
+  <object type="Spring.Aop.Framework.AutoProxy.TypeNameAutoProxyCreator, Spring.Aop">
+    <property name="TypeNames">
+      <list>
+        <value>AopGlobal.Commands.*</value>
+      </list>
+    </property>
+    <property name="InterceptorNames">
+      <list>
+        <value>throwsAdvice</value>
+        <value>afterAdvice</value>
+        <value>beforeAdvice</value>
+        <value>aroundAdvice</value>
+      </list>
+    </property>
+  </object>
+</objects>

@@ -39,14 +39,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\AfterAdvice.cs" />
+    <Compile Include="Aspects\AroundAdvice.cs" />
+    <Compile Include="Aspects\BeforeAdvice.cs" />
+    <Compile Include="Aspects\ThrowsAdvice.cs" />
+    <Compile Include="Attributes\AopAttribute.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ServiceCommand.cs" />
+    <Compile Include="Common\ServerUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Aspects\" />
-    <Folder Include="Attributes\" />
-    <Folder Include="Commands\" />
-    <Folder Include="Common\" />
-    <Folder Include="config\" />
+    <ProjectReference Include="..\spring-net-master\Spring.Aop\Spring.Aop.2010.csproj">
+      <Project>{3a3a4e65-45a6-4b20-b460-0bedc302c02c}</Project>
+      <Name>Spring.Aop.2010</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\spring-net-master\Spring.Core\Spring.Core.2010.csproj">
+      <Project>{710961a3-0df4-49e4-a26e-f5b9c044ac84}</Project>
+      <Name>Spring.Core.2010</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config\Aop.xml" />
+    <Content Include="config\Object.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
