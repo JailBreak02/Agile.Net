@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnitTest.Log4net;
+using UnitTest.Spring.Net;
 
 namespace UnitTest
 {
@@ -12,7 +13,7 @@ namespace UnitTest
         {
             try
             {
-                Log4netTest.LoggingExample();
+                SpringTest.AopTest();
             }
             catch (Exception ex)
             {
