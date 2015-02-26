@@ -23,6 +23,7 @@ namespace UnitTest.Spring.Net
                 {
                     command.UnExecute();
                 }
+                command.AnotherExecute();
             }
             catch (Exception ex)
             {

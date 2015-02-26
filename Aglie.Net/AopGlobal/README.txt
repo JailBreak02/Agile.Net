@@ -1,5 +1,5 @@
 框架说明
-1
+1 所有实现接口的类可以选择 匹配方法名、匹配[Attribute]、匹配 Spring 表达式、配置命名空间 的方式应用AOP
 
 使用说明
 1 添加现有项目 Spring.Aop 和 Spring.Core 的时候需要把 CommonAssemblyInfo.cs 文件复制到项目文件夹所在目录

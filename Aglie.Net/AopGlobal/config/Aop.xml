@@ -10,12 +10,14 @@
   <object id="aroundAdvice"
     type="AopGlobal.Aspects.AroundAdvice"/>
 
+  <!-- 配置命名空间 -->
   <!-- Or Using TypeNameAutoProxyCreator -->
   <!-- Apply 'aroundAdvisor' on all objects from namespace 'AopGlobal.Commands' -->
   <object type="Spring.Aop.Framework.AutoProxy.TypeNameAutoProxyCreator, Spring.Aop">
     <property name="TypeNames">
       <list>
         <value>AopGlobal.Commands.*</value>
+        <!--<value>命名空间.*</value>-->
       </list>
     </property>
     <property name="InterceptorNames">
@@ -27,4 +29,42 @@
       </list>
     </property>
   </object>
+
+  <!-- 匹配方法名 -->
+  <!-- 如需使用按如下说明修改配置文件 -->
+  <!-- 1 取消注释 -->
+  <!-- 2 注释 <object id="aroundAdvice"
+    type="AopGlobal.Aspects.AroundAdvice"/> 此行-->
+  <!--<object id="aroundAdvice" type="Spring.Aop.Support.NameMatchMethodPointcutAdvisor, Spring.Aop">
+    <property name="Advice">
+      <object type="AopGlobal.Aspects.AroundAdvice, AopGlobal" />
+    </property>
+    <property name="MappedNames">
+      <list>
+        <value>*Execute</value>
+      </list>
+    </property>
+  </object>-->
+
+  <!-- 匹配[Attribute] -->
+  <!-- 如需使用按如下说明修改配置文件 -->
+  <!-- 1 取消注释 -->
+  <!-- 2 注释 <object id="aroundAdvice"
+    type="AopGlobal.Aspects.AroundAdvice"/> 此行-->
+  <!--<object id="aroundAdvice" type="Spring.Aop.Support.AttributeMatchMethodPointcutAdvisor, Spring.Aop">
+    <property name="Advice">
+      <object type="AopGlobal.Aspects.AroundAdvice, AopGlobal" />
+    </property>
+    <property name="Attribute"
+              value="AopGlobal.Attributes.AopAttribute, AopGlobal" />
+  </object>-->
+
+  <!-- 匹配 Spring 表达式 -->
+  <!--<object id="aroundAdvice"
+        type="AopGlobal.Aspects.ExpressionDynamicPointcutAdvisor, AopGlobal">
+    <property name="Advice">
+      <object type="AopGlobal.Aspects.AroundAdvice, AopGlobal" />
+    </property>
+    <property name="Expression" value="MethodInfo.ReturnType == T(System.Void) and Args == null" />
+  </object>-->
 </objects>

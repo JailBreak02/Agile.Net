@@ -2,6 +2,10 @@
 <objects xmlns="http://www.springframework.net">
   <description>Object 独立配置</description>
   <!-- Services definitions -->
-  <!-- <object id="自定义" type="命名空间, 程序集名称"/> -->
-  <object id="myServiceCommand" type="AopGlobal.Commands.ServiceCommand, AopGlobal"/>
+  <object id="myServiceCommand" type="AopGlobal.Commands.ServiceCommand, AopGlobal">
+    <!--<property name="类成员名称" ref="自定义ID"/>-->
+  </object>
+
+  <!--<object id="自定义ID" type="命名空间.类名, 程序集名称">
+  </object>-->
 </objects>

@@ -12,5 +12,7 @@ namespace AopGlobal.Commands
         void Execute();
 
         void UnExecute();
+
+        void AnotherExecute();
     }
 }

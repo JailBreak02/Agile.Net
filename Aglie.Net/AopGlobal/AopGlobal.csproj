@@ -42,6 +42,7 @@
     <Compile Include="Aspects\AfterAdvice.cs" />
     <Compile Include="Aspects\AroundAdvice.cs" />
     <Compile Include="Aspects\BeforeAdvice.cs" />
+    <Compile Include="Aspects\ExpressionDynamicPointcutAdvisor.cs" />
     <Compile Include="Aspects\ThrowsAdvice.cs" />
     <Compile Include="Attributes\AopAttribute.cs" />
     <Compile Include="Commands\ICommand.cs" />
