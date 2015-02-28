@@ -22,9 +22,12 @@
     </property>
     <property name="InterceptorNames">
       <list>
-        <value>throwsAdvice</value>
-        <value>afterAdvice</value>
-        <value>beforeAdvice</value>
+        <!-- 如需使用 异常通知 取消注释即可 -->
+        <!--<value>throwsAdvice</value>-->
+        <!-- 如需使用 后置通知 取消注释即可 -->
+        <!--<value>afterAdvice</value>-->
+        <!-- 如需使用 前置通知 取消注释即可 -->
+        <!--<value>beforeAdvice</value>-->
         <value>aroundAdvice</value>
       </list>
     </property>

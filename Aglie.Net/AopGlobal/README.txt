@@ -1,5 +1,6 @@
 框架说明
 1 所有实现接口的类可以选择 匹配方法名、匹配[Attribute]、匹配 Spring 表达式、配置命名空间 的方式应用AOP
+2 实现 前置通知(beforeAdvice) 拦截环绕通知(aroundAdvice) 后置通知(afterAdvice) 异常通知(throwsAdvice) 4种通知类型
 
 使用说明
 1 添加现有项目 Spring.Aop 和 Spring.Core 的时候需要把 CommonAssemblyInfo.cs 文件复制到项目文件夹所在目录
