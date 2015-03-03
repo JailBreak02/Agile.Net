@@ -13,7 +13,8 @@ namespace UnitTest
         {
             try
             {
-                SpringTest.AopTest();
+                Log4netTest.LoggingExample();
+                //SpringTest.AopTest();
             }
             catch (Exception ex)
             {

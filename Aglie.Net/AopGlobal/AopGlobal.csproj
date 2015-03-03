@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,11 +48,20 @@
     <Compile Include="Attributes\AopAttribute.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ServiceCommand.cs" />
+    <Compile Include="Common\LogUtil.cs" />
     <Compile Include="Common\ServiceUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{db501275-2dd5-4c7e-a677-7a49eedfb111}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogManager\LogManager.csproj">
+      <Project>{bf14b8cb-cdc1-4d7f-9537-9e6c74cf4ad2}</Project>
+      <Name>LogManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\spring-net-master\Spring.Aop\Spring.Aop.2010.csproj">
       <Project>{3a3a4e65-45a6-4b20-b460-0bedc302c02c}</Project>
       <Name>Spring.Aop.2010</Name>

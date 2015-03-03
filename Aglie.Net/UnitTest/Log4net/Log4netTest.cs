@@ -30,18 +30,7 @@ namespace UnitTest.Log4net
 
             logger.Error("Hey this is an error!");
 
-            // Push a message on to the Nested Diagnostic Context stack
-            using (log4net.NDC.Push("NDC_Message"))
-            {
-                logger.Warn("This should have an NDC message");
-
-                // Set a Mapped Diagnostic Context value  
-                log4net.MDC.Set("auth", "auth-none");
-                logger.Warn("This should have an MDC message for the key 'auth'");
-
-            } // The NDC message is popped off the stack at the end of the using {} block
-
-            logger.Warn("See the NDC has been popped of! The MDC 'auth' key is still with us.");
+            logger.Warn("Hey this is an warn!");
 
             // Log an info level message
             logger.Info("Application [ConsoleApp] End");

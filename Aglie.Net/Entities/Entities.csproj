@@ -39,10 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\InteractionLog.cs" />
     <Compile Include="Data\ResultInfo.cs" />
     <Compile Include="Entity\BusinApp.cs" />
     <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\InteractionLog.cs" />
+    <Compile Include="Entity\TooltipMessages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
