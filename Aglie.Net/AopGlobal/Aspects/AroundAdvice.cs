@@ -41,6 +41,13 @@ namespace AopGlobal.Aspects
             }
             catch (Exception ex)
             {
+                // 判断返回类型是否为ResultInfo<T>
+                if (!invocation.Method.ReturnType.Name.Equals(LogUtil.ResultInfoTypeName))
+                {
+                    // 抛出异常
+                    throw ex;
+                }
+
                 // 赋值 succeed 标示方法出现异常
                 succeed = false;
                 // 赋值异常信息
@@ -90,13 +97,14 @@ namespace AopGlobal.Aspects
         {
             // 判断返回类型是否为ResultInfo<T>
             bool isResultInfo = default(bool);
-            if (invocation.Method.ReturnType.Name.Equals("ResultInfo`1"))
+            if (invocation.Method.ReturnType.Name.Equals(LogUtil.ResultInfoTypeName))
             {
                 isResultInfo = true;
             }
 
-            // 如果返回对象为null 比如方法异常时会到导致返回对象为 null
-            if (returnValue == null)
+            // 如果方法发生异常(returnValue为null)且返回对象的类型是 ResultInfo
+            // 或者方法没有异常(返回结果为null)且返回对象的类型是 ResultInfo
+            if (((returnValue == null && !succeed) && isResultInfo) || (returnValue == null && succeed && isResultInfo))
             {
                 // 初始化返回值对象
                 returnValue = Activator.CreateInstance(invocation.Method.ReturnType);
@@ -146,11 +154,13 @@ namespace AopGlobal.Aspects
             log.Operation = LogUtil.GetOperation(invocation);
             log.InvokedAddress = LogUtil.GetInvokedAddress();
             log.Arguments = LogUtil.GetArgument(invocation);
-            log.Message = isResultInfo ? LogUtil.GetMessage(returnValue, succeed, piMessage, exception) : LogUtil.GetMessage(returnValue, succeed, exception);
-            log.Result = isResultInfo ? LogUtil.GetResult(returnValue, succeed, piResult) : LogUtil.GetResult(returnValue, succeed);
+            log.Message = isResultInfo ? LogUtil.GetMessage(returnValue, succeed, piMessage, exception) : LogUtil.GetMessage(succeed, exception);
+            log.Result = isResultInfo ? LogUtil.GetResult(returnValue, piResult) : LogUtil.GetResult(invocation, returnValue, succeed);
 
             // 记录日志信息
-            logger.Info(log);
+            // 两种选择 1 写数据库 2 写文本文件 此处选择写文本文件
+            string interactionLogInfo = LogUtil.GetInteractionLogInfo(log);
+            logger.Info(interactionLogInfo);
 
             return returnValue;
         }

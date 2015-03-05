@@ -51,6 +51,10 @@
       <Project>{43f1ac10-6db8-4f42-b831-857f7786d0f0}</Project>
       <Name>AopGlobal</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{db501275-2dd5-4c7e-a677-7a49eedfb111}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\log4net-1.2.13\src\log4net.vs2010.csproj">
       <Project>{181fe707-e161-4722-9f38-6aaab6faa106}</Project>
       <Name>log4net.vs2010</Name>
