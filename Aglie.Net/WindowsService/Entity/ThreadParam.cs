@@ -5,7 +5,12 @@ using System.Text;
 
 namespace WindowsService.Entity
 {
-    class ThreadParam
+    /// <summary>
+    /// 线程传递的参数
+    /// </summary>
+    public class ThreadParam
     {
+        public object Tag1 { get; set; }
+        public object Tag2 { get; set; }  
     }
 }

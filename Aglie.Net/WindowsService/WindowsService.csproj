@@ -33,7 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,16 +50,41 @@
     <Compile Include="AutoService.Designer.cs">
       <DependentUpon>AutoService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\TaskManager.cs" />
     <Compile Include="Common\XmlUtil.cs" />
-    <Compile Include="Entity\MyTimer.cs" />
+    <Compile Include="Entity\MyTimer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Entity\ThreadParam.cs" />
     <Compile Include="Entity\TimerParam.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LogManager\LogManager.csproj">
+      <Project>{bf14b8cb-cdc1-4d7f-9537-9e6c74cf4ad2}</Project>
+      <Name>LogManager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt" />
+    <Content Include="XmlSetting.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Install.bat" />
+    <None Include="UnInstall.bat" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
